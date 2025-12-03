@@ -1,0 +1,143 @@
+<!-- 404 Error Page with Bootstrap -->
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-6">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body text-center p-5">
+                        <!-- Error Animation -->
+                        <div class="mb-4">
+                            <div class="error-animation">
+                                <span class="display-1 fw-bold text-primary">4</span>
+                                <span class="display-1 fw-bold text-danger mx-2 bounce">0</span>
+                                <span class="display-1 fw-bold text-warning">4</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Error Message -->
+                        <h2 class="h1 fw-bold text-dark mb-3">Ups! Strona nie znaleziona</h2>
+                        <p class="lead text-muted mb-4">
+                            Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.
+                            Sprawdź adres URL lub użyj nawigacji poniżej.
+                        </p>
+                        
+                        <!-- Action Buttons -->
+                        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-4">
+                            <a href="/" class="btn btn-primary btn-lg px-4">
+                                <i class="bi bi-house-fill me-2"></i>Strona główna
+                            </a>
+                            <button onclick="history.back()" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-arrow-left me-2"></i>Cofnij
+                            </button>
+                        </div>
+                        
+                        <!-- Quick Navigation -->
+                        <div class="mt-5">
+                            <h5 class="text-muted mb-3">Lub sprawdź nasze firmy:</h5>
+                            <div class="row g-2">
+                                <div class="col-md-4">
+                                    <a href="/firmy/bukowski" class="btn btn-outline-info w-100">
+                                        <i class="bi bi-building me-2"></i>Bukowski
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="/firmy/lavard" class="btn btn-outline-success w-100">
+                                        <i class="bi bi-building me-2"></i>Lavard
+                                    </a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="/firmy/konopka" class="btn btn-outline-warning w-100">
+                                        <i class="bi bi-building me-2"></i>Konopka
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Help Section -->
+                        <div class="mt-5 p-4 bg-light rounded">
+                            <h6 class="text-muted mb-3">
+                                <i class="bi bi-question-circle me-2"></i>Potrzebujesz pomocy?
+                            </h6>
+                            <p class="small text-muted mb-0">
+                                Jeśli problem się powtarza, skontaktuj się z administratorem systemu.
+                                <br>Kod błędu: <code>404 - Not Found</code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS for animations -->
+<style>
+    @keyframes bounce {
+        0%, 20%, 60%, 100% {
+            transform: translateY(0);
+        }
+        40% {
+            transform: translateY(-20px);
+        }
+        80% {
+            transform: translateY(-10px);
+        }
+    }
+    
+    .bounce {
+        animation: bounce 2s infinite;
+    }
+    
+    .error-animation {
+        font-family: 'Arial Black', sans-serif;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .card {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.95);
+    }
+    
+    .btn:hover {
+        transform: translateY(-2px);
+        transition: all 0.3s ease;
+    }
+    
+    .container-fluid {
+        min-height: 100vh;
+    }
+    
+    @media (max-width: 768px) {
+        .error-animation {
+            font-size: 4rem !important;
+        }
+    }
+</style>
+
+<!-- Additional JavaScript for interactive effects -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add fade-in animation
+    const card = document.querySelector('.card');
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(50px)';
+    
+    setTimeout(() => {
+        card.style.transition = 'all 0.8s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    }, 100);
+    
+    // Add hover effects to buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.boxShadow = '0 8px 25px rgba(0,0,0,0.15)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.boxShadow = '';
+        });
+    });
+});
+</script>
