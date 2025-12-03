@@ -19,6 +19,7 @@
   "homepage": "https://github.com/wojbuk3335/kurs_NODE#readme",
   "dependencies": {
     "bootstrap": "^5.3.8",
+    "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
     "express": "^5.2.1",
     "express-ejs-layouts": "^2.5.1",

@@ -1,5 +1,229 @@
-<ul>
-  <% companies.forEach(element=>{%>
-    <h2><a href="<%= element.slug %>"><%= element.slug %></a></h2>
-  <% });%>
-</ul>
+<!-- Company Profile Header -->
+<div class="container mt-4">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Strona główna</a></li>
+            <li class="breadcrumb-item"><a href="/firmy">Firmy</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><%= company.name %></li>
+        </ol>
+    </nav>
+
+    <!-- Company Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-lg border-0 overflow-hidden">
+                <div class="card-header bg-primary text-white py-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h1 class="h2 mb-2 fw-bold">
+                                <i class="fas fa-building me-3"></i>
+                                <%= company.name %>
+                            </h1>
+                            <p class="mb-0 opacity-90">
+                                <i class="fas fa-link me-2"></i>
+                                <a href="<%= company.webUrl %>" target="_blank" class="text-white text-decoration-none">
+                                    <%= company.webUrl %>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <div class="company-logo bg-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <span class="h3 text-primary mb-0 fw-bold">
+                                    <%= company.name.charAt(0).toUpperCase() %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <!-- Company Description -->
+                    <div class="mb-4">
+                        <h5 class="text-primary mb-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Opis firmy
+                        </h5>
+                        <p class="text-muted lead">
+                            <%= company.description || 'Brak opisu firmy.' %>
+                        </p>
+                    </div>
+
+                    <!-- Company Details -->
+                    <div class="row g-4 mb-4">
+                        <% if (company.employees) { %>
+                        <div class="col-md-6">
+                            <div class="bg-light rounded p-3 h-100">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <div class="bg-success rounded-circle p-3">
+                                            <i class="fas fa-users text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 text-success">Liczba pracowników</h6>
+                                        <p class="mb-0 h5 fw-bold">
+                                            <%= company.employees.toLocaleString() %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        
+                        <% if (company.founded) { %>
+                        <div class="col-md-6">
+                            <div class="bg-light rounded p-3 h-100">
+                                <div class="d-flex align-items-center">
+                                    <div class="flex-shrink-0">
+                                        <div class="bg-info rounded-circle p-3">
+                                            <i class="fas fa-calendar-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 text-info">Data założenia</h6>
+                                        <p class="mb-0 h5 fw-bold">
+                                            <%= new Date(company.founded).getFullYear() %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="text-center">
+                        <a href="<%= company.webUrl %>" target="_blank" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-external-link-alt me-2"></i>
+                            Odwiedź stronę
+                        </a>
+                        <a href="/firmy" class="btn btn-outline-secondary btn-lg">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Powrót do listy
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other Companies Section -->
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center mb-4">
+                <i class="fas fa-building me-2 text-primary"></i>
+                Inne firmy w naszej bazie
+            </h3>
+            
+            <div class="row g-3">
+                <% companies.filter(c => c.slug !== company.slug).forEach(element => { %>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm border-0 company-card">
+                        <div class="card-body text-center">
+                            <div class="company-icon bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <span class="h4 text-primary mb-0 fw-bold">
+                                    <%= element.name.charAt(0).toUpperCase() %>
+                                </span>
+                            </div>
+                            <h5 class="card-title mb-2">
+                                <%= element.name %>
+                            </h5>
+                            <p class="card-text text-muted small mb-3">
+                                <%= element.description ? element.description.substring(0, 80) + '...' : 'Firma z naszej bazy' %>
+                            </p>
+                            <a href="/firmy/<%= element.slug %>" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-eye me-1"></i>
+                                Zobacz szczegóły
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom CSS for animations -->
+<style>
+    .company-card {
+        transition: all 0.3s ease;
+    }
+    
+    .company-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    }
+    
+    .company-logo {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .company-logo:hover {
+        transform: scale(1.05);
+    }
+    
+    .company-icon {
+        transition: all 0.3s ease;
+    }
+    
+    .company-card:hover .company-icon {
+        transform: scale(1.1);
+        background-color: rgba(var(--bs-primary-rgb), 0.2) !important;
+    }
+    
+    .breadcrumb-item a {
+        text-decoration: none;
+        color: #6c757d;
+    }
+    
+    .breadcrumb-item a:hover {
+        color: var(--bs-primary);
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .card {
+        animation: fadeInUp 0.6s ease;
+    }
+</style>
+
+<!-- JavaScript for enhanced interactions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    
+    // Add loading state to external links
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        link.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (icon) {
+                const originalClass = icon.className;
+                icon.className = 'fas fa-spinner fa-spin me-2';
+                setTimeout(() => {
+                    icon.className = originalClass;
+                }, 1000);
+            }
+        });
+    });
+});
+</script>

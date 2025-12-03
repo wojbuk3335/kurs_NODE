@@ -1,68 +1,177 @@
-<!-- 404 Error Page with Bootstrap -->
-<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+<!-- 404 Error Page Header -->
+<div class="bg-danger text-white py-5 mb-5">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-xl-6">
-                <div class="card shadow-lg border-0">
-                    <div class="card-body text-center p-5">
-                        <!-- Error Animation -->
-                        <div class="mb-4">
-                            <div class="error-animation">
-                                <span class="display-1 fw-bold text-primary">4</span>
-                                <span class="display-1 fw-bold text-danger mx-2 bounce">0</span>
-                                <span class="display-1 fw-bold text-warning">4</span>
-                            </div>
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="fas fa-exclamation-triangle me-3"></i>
+                    Strona nie znaleziona
+                </h1>
+                <p class="lead mb-0 opacity-90">
+                    Ups! Nie mogliśmy znaleźć strony której szukasz
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <div class="error-animation">
+                    <span class="display-3 fw-bold text-white opacity-75">4</span>
+                    <span class="display-3 fw-bold text-warning mx-2 bounce">0</span>
+                    <span class="display-3 fw-bold text-white opacity-75">4</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/" class="text-decoration-none">
+                    <i class="fas fa-home me-1"></i>Strona główna
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Błąd 404</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- Error Content -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Main Error Card -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-body text-center p-5">
+                    <!-- Error Icon -->
+                    <div class="mb-4">
+                        <div class="bg-danger bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 100px; height: 100px;">
+                            <i class="fas fa-search text-danger" style="font-size: 2.5rem;"></i>
                         </div>
-                        
-                        <!-- Error Message -->
-                        <h2 class="h1 fw-bold text-dark mb-3">Ups! Strona nie znaleziona</h2>
-                        <p class="lead text-muted mb-4">
-                            Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.
-                            Sprawdź adres URL lub użyj nawigacji poniżej.
-                        </p>
-                        
-                        <!-- Action Buttons -->
-                        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-4">
-                            <a href="/" class="btn btn-primary btn-lg px-4">
-                                <i class="bi bi-house-fill me-2"></i>Strona główna
+                    </div>
+                    
+                    <!-- Error Message -->
+                    <h2 class="h3 fw-bold text-dark mb-3">Ups! Strona nie znaleziona</h2>
+                    <p class="text-muted mb-4 lead">
+                        Przepraszamy, ale strona której szukasz nie istnieje lub została przeniesiona.
+                        <br>Sprawdź adres URL lub użyj nawigacji poniżej.
+                    </p>
+                    
+                    <!-- Error Code -->
+                    <div class="mb-4">
+                        <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 fs-6 px-3 py-2">
+                            <i class="fas fa-code me-2"></i>
+                            Kod błędu: 404 - Not Found
+                        </span>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+                        <a href="/" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-home me-2"></i>Strona główna
+                        </a>
+                        <button onclick="history.back()" class="btn btn-outline-secondary btn-lg px-4">
+                            <i class="fas fa-arrow-left me-2"></i>Cofnij
+                        </button>
+                        <a href="/firmy" class="btn btn-outline-primary btn-lg px-4">
+                            <i class="fas fa-building me-2"></i>Zobacz firmy
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Navigation Section -->
+            <div class="card shadow-sm border-0 mb-5">
+                <div class="card-header bg-light border-0">
+                    <h5 class="mb-0 text-primary">
+                        <i class="fas fa-compass me-2"></i>
+                        Popularne sekcje
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <a href="/" class="text-decoration-none">
+                                <div class="d-flex align-items-center p-3 bg-primary bg-opacity-5 rounded hover-item">
+                                    <div class="flex-shrink-0">
+                                        <div class="bg-primary bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-home text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 text-dark">Strona główna</h6>
+                                        <small class="text-muted">Wróć do strony startowej</small>
+                                    </div>
+                                </div>
                             </a>
-                            <button onclick="history.back()" class="btn btn-outline-secondary btn-lg px-4">
-                                <i class="bi bi-arrow-left me-2"></i>Cofnij
-                            </button>
                         </div>
-                        
-                        <!-- Quick Navigation -->
-                        <div class="mt-5">
-                            <h5 class="text-muted mb-3">Lub sprawdź nasze firmy:</h5>
-                            <div class="row g-2">
-                                <div class="col-md-4">
-                                    <a href="/firmy/bukowski" class="btn btn-outline-info w-100">
-                                        <i class="bi bi-building me-2"></i>Bukowski
-                                    </a>
+                        <div class="col-md-6">
+                            <a href="/firmy" class="text-decoration-none">
+                                <div class="d-flex align-items-center p-3 bg-success bg-opacity-5 rounded hover-item">
+                                    <div class="flex-shrink-0">
+                                        <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-building text-success"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 text-dark">Nasze firmy</h6>
+                                        <small class="text-muted">Zobacz wszystkie firmy</small>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <a href="/firmy/lavard" class="btn btn-outline-success w-100">
-                                        <i class="bi bi-building me-2"></i>Lavard
-                                    </a>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="/api/companies" class="text-decoration-none">
+                                <div class="d-flex align-items-center p-3 bg-info bg-opacity-5 rounded hover-item">
+                                    <div class="flex-shrink-0">
+                                        <div class="bg-info bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                            <i class="fas fa-code text-info"></i>
+                                        </div>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <h6 class="mb-1 text-dark">API</h6>
+                                        <small class="text-muted">Dostęp do API firm</small>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <a href="/firmy/konopka" class="btn btn-outline-warning w-100">
-                                        <i class="bi bi-building me-2"></i>Konopka
-                                    </a>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 bg-warning bg-opacity-5 rounded">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-warning bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                        <i class="fas fa-question-circle text-warning"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h6 class="mb-1 text-dark">Pomoc</h6>
+                                    <small class="text-muted">Skontaktuj się z administratorem</small>
                                 </div>
                             </div>
                         </div>
-                        
-                        <!-- Help Section -->
-                        <div class="mt-5 p-4 bg-light rounded">
-                            <h6 class="text-muted mb-3">
-                                <i class="bi bi-question-circle me-2"></i>Potrzebujesz pomocy?
-                            </h6>
-                            <p class="small text-muted mb-0">
-                                Jeśli problem się powtarza, skontaktuj się z administratorem systemu.
-                                <br>Kod błędu: <code>404 - Not Found</code>
-                            </p>
-                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Help Section -->
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h6 class="text-muted mb-3">
+                        <i class="fas fa-question-circle me-2"></i>
+                        Dalej potrzebujesz pomocy?
+                    </h6>
+                    <p class="text-muted mb-3">
+                        Jeśli problem się powtarza lub uważasz, że to błąd systemu, 
+                        skontaktuj się z administratorem.
+                    </p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <small class="text-muted">
+                            <i class="fas fa-clock me-1"></i>
+                            <%= new Date().toLocaleString('pl-PL') %>
+                        </small>
+                        <small class="text-muted">
+                            <i class="fas fa-server me-1"></i>
+                            Node.js Course App
+                        </small>
                     </div>
                 </div>
             </div>
@@ -70,17 +179,17 @@
     </div>
 </div>
 
-<!-- Custom CSS for animations -->
+<!-- Custom CSS for animations and styling -->
 <style>
     @keyframes bounce {
         0%, 20%, 60%, 100% {
             transform: translateY(0);
         }
         40% {
-            transform: translateY(-20px);
+            transform: translateY(-10px);
         }
         80% {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
     }
     
@@ -93,9 +202,19 @@
         text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
     }
     
+    .hover-item {
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .hover-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        border-color: rgba(0,0,0,0.1);
+    }
+    
     .card {
-        backdrop-filter: blur(10px);
-        background: rgba(255, 255, 255, 0.95);
+        transition: all 0.3s ease;
     }
     
     .btn:hover {
@@ -103,30 +222,32 @@
         transition: all 0.3s ease;
     }
     
-    .container-fluid {
-        min-height: 100vh;
-    }
-    
     @media (max-width: 768px) {
-        .error-animation {
-            font-size: 4rem !important;
+        .display-4 {
+            font-size: 2rem;
+        }
+        
+        .error-animation .display-3 {
+            font-size: 2rem;
         }
     }
 </style>
 
-<!-- Additional JavaScript for interactive effects -->
+<!-- JavaScript for interactive effects -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Add fade-in animation
-    const card = document.querySelector('.card');
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(50px)';
-    
-    setTimeout(() => {
-        card.style.transition = 'all 0.8s ease';
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-    }, 100);
+    // Add fade-in animation to cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
     
     // Add hover effects to buttons
     const buttons = document.querySelectorAll('.btn');
