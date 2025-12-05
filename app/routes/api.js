@@ -1,5 +1,6 @@
 const express = require('express');
 const Company = require('../models/Company');
+const UserController = require('../controllers/user-controller');
 
 module.exports = (app) => {
     // GET - pobierz wszystkie firmy
@@ -65,4 +66,10 @@ module.exports = (app) => {
             res.status(500).json({ error: error.message });
         }
     });
+
+    // POST - rejestracja użytkownika
+    app.post('/api/register', UserController.register);
+    
+    // POST - logowanie użytkownika
+    app.post('/api/login', UserController.login);
 };

@@ -1,8 +1,22 @@
 const express=require('express')
 const app = express()
+const session = require('express-session')
+var cookieParser = require('cookie-parser')
+const {SESSION_SECRET_KEY} = require('./config.js')
 
 // Middleware do parsowania JSON
 app.use(express.json())
+// Middleware do parsowania danych z formularzy
+app.use(express.urlencoded({ extended: true }))
+// Middleware do parsowania cookies
+app.use(cookieParser())
+
+app.use(session({
+  secret: SESSION_SECRET_KEY,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
 
 app.set('view engine','ejs');
 app.set('views','./views');

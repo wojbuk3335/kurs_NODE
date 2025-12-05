@@ -1,0 +1,492 @@
+<!-- Registration Page Header -->
+<div class="bg-primary text-white py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="fas fa-user-plus me-3"></i>
+                    Rejestracja
+                </h1>
+                <p class="lead mb-0 opacity-90">
+                    Dołącz do naszej społeczności i poznaj świat technologii
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <div class="badge bg-light text-primary fs-5 px-3 py-2">
+                    <i class="fas fa-rocket me-2"></i>
+                    Bezpłatne konto
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/" class="text-decoration-none">
+                    <i class="fas fa-home me-1"></i>Strona główna
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Rejestracja</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- Registration Form Section -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient-primary text-white py-4">
+                    <div class="text-center">
+                        <div class="bg-light bg-opacity-20 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-user-plus text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h3 class="card-title mb-2 fw-bold">Utwórz nowe konto</h3>
+                        <p class="mb-0 opacity-90">Wypełnij poniższy formularz, aby rozpocząć</p>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                <form id="registrationForm" action="/api/register" method="POST" novalidate>
+                        <!-- Personal Information Section -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">
+                                    <i class="fas fa-user me-2"></i>
+                                    Dane osobowe
+                                </h5>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="firstName" class="form-label fw-bold">Imię <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-user text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                    <div class="invalid-feedback">
+                                        Proszę podać swoje imię.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label fw-bold">Nazwisko <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-user text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                    <div class="invalid-feedback">
+                                        Proszę podać swoje nazwisko.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information Section -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">
+                                    <i class="fas fa-envelope me-2"></i>
+                                    Dane kontaktowe
+                                </h5>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="email" class="form-label fw-bold">Adres e-mail <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-envelope text-muted"></i>
+                                    </span>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <div class="invalid-feedback">
+                                        Proszę podać prawidłowy adres e-mail.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="phone" class="form-label fw-bold">Numer telefonu</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-phone text-muted"></i>
+                                    </span>
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+48 123 456 789">
+                                </div>
+                                <small class="form-text text-muted">Opcjonalne - do kontaktu w sprawie konta</small>
+                            </div>
+                        </div>
+
+                        <!-- Account Security Section -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">
+                                    <i class="fas fa-lock me-2"></i>
+                                    Bezpieczeństwo konta
+                                </h5>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="password" class="form-label fw-bold">Hasło <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-lock text-muted"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" name="password" required minlength="8">
+                                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <div class="invalid-feedback">
+                                        Hasło musi mieć co najmniej 8 znaków.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="confirmPassword" class="form-label fw-bold">Potwierdź hasło <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-lock text-muted"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                                    <div class="invalid-feedback">
+                                        Hasła muszą być identyczne.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <div class="password-strength">
+                                    <small class="form-text text-muted">
+                                        Hasło powinno zawierać co najmniej 8 znaków, w tym wielkią i małą literę oraz cyfrę.
+                                    </small>
+                                    <div class="progress mt-2" style="height: 5px;">
+                                        <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Additional Information Section -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <h5 class="text-primary mb-3">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    Dodatkowe informacje
+                                </h5>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="company" class="form-label fw-bold">Nazwa firmy</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-building text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="company" name="company" placeholder="Twoja firma">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="position" class="form-label fw-bold">Stanowisko</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light">
+                                        <i class="fas fa-briefcase text-muted"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="position" name="position" placeholder="Twoje stanowisko">
+                                </div>
+                            </div>
+                            
+                            <div class="col-12">
+                                <label for="interests" class="form-label fw-bold">Zainteresowania technologiczne</label>
+                                <div class="row g-2">
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="interests" value="nodejs" id="interestNodejs">
+                                            <label class="form-check-label" for="interestNodejs">
+                                                <i class="fab fa-node-js text-success me-1"></i>Node.js
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="interests" value="react" id="interestReact">
+                                            <label class="form-check-label" for="interestReact">
+                                                <i class="fab fa-react text-info me-1"></i>React
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="interests" value="python" id="interestPython">
+                                            <label class="form-check-label" for="interestPython">
+                                                <i class="fab fa-python text-warning me-1"></i>Python
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="interests" value="docker" id="interestDocker">
+                                            <label class="form-check-label" for="interestDocker">
+                                                <i class="fab fa-docker text-primary me-1"></i>Docker
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="interests" value="mongodb" id="interestMongodb">
+                                            <label class="form-check-label" for="interestMongodb">
+                                                <i class="fas fa-leaf text-success me-1"></i>MongoDB
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="interests" value="aws" id="interestAws">
+                                            <label class="form-check-label" for="interestAws">
+                                                <i class="fab fa-aws text-warning me-1"></i>AWS
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terms and Privacy Section -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-12">
+                                <div class="card bg-light border-0">
+                                    <div class="card-body">
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" name="terms" value="accepted" id="terms" required>
+                                            <label class="form-check-label" for="terms">
+                                                Akceptuję <a href="#" class="text-decoration-none">regulamin</a> i <a href="#" class="text-decoration-none">politykę prywatności</a> <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="invalid-feedback">
+                                                Musisz zaakceptować regulamin.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="newsletter" value="yes" id="newsletter">
+                                            <label class="form-check-label" for="newsletter">
+                                                Chcę otrzymywać newsletter z aktualnościami technologicznymi
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2 mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus me-2"></i>
+                                Utwórz konto
+                            </button>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p class="text-muted mb-0">
+                                Masz już konto? 
+                                <a href="#" class="text-decoration-none fw-bold">Zaloguj się</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="py-5 mt-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-4">
+                <h2 class="h3 fw-bold text-primary mb-3">Dlaczego warto dołączyć?</h2>
+                <p class="text-muted">Poznaj korzyści z rejestracji w naszej platformie</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-database text-primary" style="font-size: 1.8rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Dostęp do bazy firm</h5>
+                    <p class="text-muted mb-0">Przeglądaj szczegółowe profile najlepszych firm technologicznych</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-code text-warning" style="font-size: 1.8rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">API REST</h5>
+                    <p class="text-muted mb-0">Korzystaj z naszego API do integracji z własnymi projektami</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-graduation-cap text-success" style="font-size: 1.8rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Materiały edukacyjne</h5>
+                    <p class="text-muted mb-0">Uczestnicz w kursach Node.js i rozwijaj swoje umiejętności</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Form Enhancement -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registrationForm');
+    const passwordInput = document.getElementById('password');
+    const confirmPasswordInput = document.getElementById('confirmPassword');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+    const progressBar = document.querySelector('.progress-bar');
+
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+
+    // Password strength indicator
+    passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        let strength = 0;
+        
+        // Check password criteria
+        if (password.length >= 8) strength += 25;
+        if (/[a-z]/.test(password)) strength += 25;
+        if (/[A-Z]/.test(password)) strength += 25;
+        if (/[0-9]/.test(password)) strength += 25;
+        
+        // Update progress bar
+        progressBar.style.width = strength + '%';
+        
+        if (strength < 50) {
+            progressBar.className = 'progress-bar bg-danger';
+        } else if (strength < 75) {
+            progressBar.className = 'progress-bar bg-warning';
+        } else {
+            progressBar.className = 'progress-bar bg-success';
+        }
+    });
+
+    // Confirm password validation
+    confirmPasswordInput.addEventListener('input', function() {
+        if (this.value !== passwordInput.value) {
+            this.setCustomValidity('Hasła muszą być identyczne');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+
+    // Form submission with animation
+    form.addEventListener('submit', function(e) {
+        
+        if (form.checkValidity()) {
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Tworzenie konta...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success message
+                const alertDiv = document.createElement('div');
+                alertDiv.className = 'alert alert-success alert-dismissible fade show';
+                alertDiv.innerHTML = `
+                    <i class="fas fa-check-circle me-2"></i>
+                    <strong>Sukces!</strong> Konto zostało utworzone. Sprawdź swoją skrzynkę e-mail w celu aktywacji.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                `;
+                
+                form.parentNode.insertBefore(alertDiv, form);
+                
+                // Reset form and button
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                progressBar.style.width = '0%';
+                
+                // Scroll to success message
+                alertDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 2000);
+        }
+        
+        form.classList.add('was-validated');
+    });
+
+    // Add smooth animations to form sections
+    const sections = document.querySelectorAll('.row.g-3');
+    sections.forEach((section, index) => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        
+        setTimeout(() => {
+            section.style.transition = 'all 0.5s ease';
+            section.style.opacity = '1';
+            section.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+});
+</script>
+
+<style>
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #0d6efd 100%);
+}
+
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.6s ease;
+}
+</style>

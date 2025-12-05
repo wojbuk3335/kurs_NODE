@@ -1,0 +1,246 @@
+<!-- Login Page Header -->
+<div class="bg-primary text-white py-5 mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">
+                    <i class="fas fa-sign-in-alt me-3"></i>
+                    Logowanie
+                </h1>
+                <p class="lead mb-0 opacity-90">
+                    Zaloguj się do swojego konta
+                </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <div class="badge bg-light text-primary fs-5 px-3 py-2">
+                    <i class="fas fa-shield-alt me-2"></i>
+                    Bezpieczne logowanie
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Breadcrumb -->
+<div class="container mb-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="/" class="text-decoration-none">
+                    <i class="fas fa-home me-1"></i>Strona główna
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Logowanie</li>
+        </ol>
+    </nav>
+</div>
+
+<!-- Login Form Section -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-xl-5">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-gradient-primary text-white py-4">
+                    <div class="text-center">
+                        <div class="bg-light bg-opacity-20 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                            <i class="fas fa-user text-white" style="font-size: 2rem;"></i>
+                        </div>
+                        <h3 class="card-title mb-2 fw-bold">Witaj ponownie!</h3>
+                        <p class="mb-0 opacity-90">Zaloguj się do swojego konta</p>
+                    </div>
+                </div>
+                
+                <div class="card-body p-4">
+                    <!-- Error Message -->
+                    <% if (locals.error) { %>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <%= error %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    <% } %>
+
+                    <form action="/api/login" method="POST" novalidate>
+                        <!-- Email Section -->
+                        <div class="mb-4">
+                            <label for="email" class="form-label fw-bold">Adres e-mail <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-envelope text-muted"></i>
+                                </span>
+                                <input type="email" class="form-control" id="email" name="email" required placeholder="twoj@email.com" value="<%= locals.form?.email || '' %>">
+                                <div class="invalid-feedback">
+                                    Proszę podać prawidłowy adres e-mail.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Password Section -->
+                        <div class="mb-4">
+                            <label for="password" class="form-label fw-bold">Hasło <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light">
+                                    <i class="fas fa-lock text-muted"></i>
+                                </span>
+                                <input type="password" class="form-control" id="password" name="password" required placeholder="Twoje hasło">
+                                <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <div class="invalid-feedback">
+                                    Proszę podać hasło.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Remember Me -->
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Zapamiętaj mnie
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2 mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                Zaloguj się
+                            </button>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p class="text-muted mb-2">
+                                Nie masz jeszcze konta? 
+                                <a href="/register" class="text-decoration-none fw-bold">Zarejestruj się</a>
+                            </p>
+                            <a href="#" class="text-decoration-none text-muted small">
+                                <i class="fas fa-key me-1"></i>Zapomniałeś hasła?
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="py-5 mt-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-4">
+                <h2 class="h3 fw-bold text-primary mb-3">Po zalogowaniu otrzymasz dostęp do</h2>
+                <p class="text-muted">Odkryj pełne możliwości naszej platformy</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                        <i class="fas fa-chart-line text-primary" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Szczegółowych analiz</h5>
+                    <p class="text-muted mb-0 small">Otrzymuj spersonalizowane raporty i analizy firm</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-success bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                        <i class="fas fa-bookmark text-success" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Ulubionych firm</h5>
+                    <p class="text-muted mb-0 small">Zapisuj i śledź interesujące Cię firmy</p>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 70px; height: 70px;">
+                        <i class="fas fa-bell text-warning" style="font-size: 1.5rem;"></i>
+                    </div>
+                    <h5 class="fw-bold mb-2">Powiadomień</h5>
+                    <p class="text-muted mb-0 small">Otrzymuj alerty o zmianach w obserwowanych firmach</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Form Enhancement -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const passwordInput = document.getElementById('password');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+
+    // Toggle password visibility
+    togglePasswordBtn.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    });
+
+    // Form validation
+    form.addEventListener('submit', function(e) {
+        if (!form.checkValidity()) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    });
+
+    // Add smooth animations
+    const card = document.querySelector('.card');
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    
+    setTimeout(() => {
+        card.style.transition = 'all 0.6s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    }, 100);
+});
+</script>
+
+<style>
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, #0d6efd 100%);
+}
+
+.form-control:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
